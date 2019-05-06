@@ -17,12 +17,22 @@ new Staff({
   /* ======== Extention Code Here ======== */
   Vue.config.productionTip = false;
 
-  // Register Modules
+  // Register Components
   components.length &&
-    // Importz Components
+    // Importz
     Importz(components, name =>
-      // Vue Register Component
+      // Register
       Vue.component(`x-${name}`, () => import(`@component/${name}`))
+    );
+
+  // Register Modules
+  const Mods =
+    // Length
+    modules.length &&
+    // Importz
+    Importz(modules, (name, cip) =>
+      // Collection
+      cip(require(`@module/${name}`))
     );
 
   // Running
@@ -47,7 +57,7 @@ new Staff({
         // Name Space
         namespaced: true,
         // Use Modules
-        modules: { ...modules }
+        modules: { ...Mods }
       }),
 
       // Render
