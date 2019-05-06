@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <h2>Component Sample is</h2>
+    <h2>Welcome to use Vue-Staff</h2>
     <x-sample />
   </div>
 </template>
