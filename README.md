@@ -1,29 +1,27 @@
-# vue-staff
+# Vue Staff
 
-## Project setup
-```
-yarn install
+> Author By Joenix Team
+
+## Get Start
+
+```bash
+yarn
+# or
+npm i
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
+### Compiles and Hot-Reload ( development mode )
+
+```bash
+yarn serve
 ```
 
-### Compiles and minifies for production
-```
+### Compiles and Minifies ( production mode )
+
+```bash
 yarn run build
 ```
 
-### Run your tests
-```
-yarn run test
-```
+### Customize Configuration
 
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+[Configuration Reference](https://cli.vuejs.org/zh/).

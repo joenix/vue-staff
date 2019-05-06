@@ -7,6 +7,9 @@ import { router, modules, components } from "./registry";
 // Import App
 import App from "./App.vue";
 
+// Import CSS Variables
+import "@sheet/variable.css";
+
 // Initialization
 new Staff({
   /* Manifest */
