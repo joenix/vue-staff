@@ -13,7 +13,13 @@ module.exports = {
   productionSourceMap: false,
 
   devServer: {
-    host: env("HOST")
+    host: "0.0.0.0",
+    proxy: {
+      "/api": {
+        target: "http://192.168.1.100:8080/",
+        changeOrigin: true
+      }
+    }
   },
 
   pluginOptions: {
@@ -24,9 +30,14 @@ module.exports = {
   },
 
   css: {
+    extract: true,
+    modules: true,
     loaderOptions: {
       less: {
         javascriptEnabled: true
+      },
+      sass: {
+        data: `@import "~@sheet/variable.scss";`
       }
     }
   },
@@ -36,6 +47,8 @@ module.exports = {
     config.entry.app = ["babel-polyfill", resolve("src/main.js")];
     // Alias Name
     config.resolve.alias
+      // node_modules
+      .set("#", resolve("node_modules"))
       // src
       .set("@", resolve("src"))
       // module
@@ -44,6 +57,8 @@ module.exports = {
       .set("@component", resolve("src/components"))
       // view
       .set("@view", resolve("src/views"))
+      // sheet
+      .set("@sheet", resolve("src/sheet"))
       // asset
       .set("@asset", resolve("src/assets"));
   },
