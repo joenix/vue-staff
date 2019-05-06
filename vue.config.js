@@ -25,7 +25,7 @@ module.exports = {
   pluginOptions: {
     "style-resources-loader": {
       preProcessor: "less",
-      patterns: [resolve("./public/variable.less")]
+      patterns: [resolve("./src/sheet/variable.less")]
     }
   },
 

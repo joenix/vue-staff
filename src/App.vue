@@ -14,19 +14,25 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px;
+  padding: 40px;
+}
+</style>
+
+<style lang="css">
+#app {
+  color: var(--color__font);
 }
 </style>
 
 <style lang="scss">
-.home {
-  color: $red;
+#app {
+  border: 10px solid $color__border;
 }
 </style>
 
 <style lang="less">
-.home {
-  background-color: @cyan;
+#app {
+  background-color: @color__background;
 }
 </style>
