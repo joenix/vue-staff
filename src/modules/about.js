@@ -1,3 +1,3 @@
-export default {
-  state: "About State"
+export default $http => {
+  return { state: "About State" };
 };

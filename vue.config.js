@@ -1,5 +1,4 @@
 const Path = require("path");
-const Axios = require("axios");
 
 function resolve(dir) {
   return Path.resolve(__dirname, dir);
@@ -16,7 +15,17 @@ module.exports = {
     host: "0.0.0.0",
     proxy: {
       "/api": {
-        target: "http://192.168.1.100:8080/",
+        target: process.env.proxy,
+        pathRewrite: {
+          "^/api": "/"
+        },
+        changeOrigin: true
+      },
+      "/mock": {
+        target: "http://localhost:3000/",
+        pathRewrite: {
+          "^/mock": "/"
+        },
         changeOrigin: true
       }
     }
@@ -25,7 +34,10 @@ module.exports = {
   pluginOptions: {
     "style-resources-loader": {
       preProcessor: "less",
-      patterns: [resolve("./src/sheet/variable.less")]
+      patterns: [
+        resolve("./src/sheet/skin/ant-design.less"),
+        resolve("./src/sheet/variable/index.less")
+      ]
     }
   },
 
@@ -37,7 +49,7 @@ module.exports = {
         javascriptEnabled: true
       },
       sass: {
-        data: `@import "~@sheet/variable.scss";`
+        data: `@import "~@sheet/skin/element-ui.scss";`
       }
     }
   },
@@ -53,6 +65,8 @@ module.exports = {
       .set("@", resolve("src"))
       // module
       .set("@module", resolve("src/modules"))
+      // i18n
+      .set("@i18n", resolve("src/i18n"))
       // component
       .set("@component", resolve("src/components"))
       // view

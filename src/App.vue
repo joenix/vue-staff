@@ -1,12 +1,26 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">HOME</router-link> |
+      <router-link to="/about">ABOUT</router-link>
     </div>
     <router-view />
+    {{ $store.state.home.mock }}
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.$store.dispatch("home/getMock");
+
+    Console.info("THE INFO CONSOLE TOUCH", "MODULE NAME");
+    Console.warn("THE WARN CONSOLE TOUCH");
+    Console.error("THE ERROR CONSOLE TOUCH");
+    Console.log("THE LOG CONSOLE TOUCH", "MODULE LOG");
+  }
+};
+</script>
 
 <style lang="css">
 #app {
@@ -21,7 +35,7 @@
 
 <style lang="css">
 #app {
-  color: var(--color__font);
+  color: var(--color__error);
 }
 </style>
 
